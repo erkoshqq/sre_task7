@@ -20,10 +20,10 @@ pipeline {
                     def destinationDir = "${JENKINS_HOME}/workspace/${JOB_NAME}/copied_files/"
                     
                     // Create the destination directory if it doesn't exist
-                    sh "mkdir -p ${destinationDir}"
+                    bat "mkdir ${destinationDir}"
                     ///
                     // Copy the file using the 'cp' shell command
-                    sh "cp ${sourceFile} ${destinationDir}"
+                    bat "copy ${sourceFile} ${destinationDir}"
                 }
             }
         }
@@ -33,7 +33,7 @@ pipeline {
         always {
             // Clean up: Print the copied files for reference
             script {
-                sh "ls ${JENKINS_HOME}/workspace/${JOB_NAME}/copied_files/"
+                bat "dir ${JENKINS_HOME}/workspace/${JOB_NAME}/copied_files/"
             }
         }
     }
