@@ -20,10 +20,10 @@ pipeline {
                     def destinationDir = "${JENKINS_HOME}\\workspace\\${JOB_NAME}\\copied_files\\"
                     
                     // Create the destination directory if it doesn't exist
-                    bat "mkdir ${destinationDir}"
+                    bat "if not exist ${destinationDir} mkdir ${destinationDir}"
                     ///
                     // Copy the file using the 'cp' shell command
-                    bat "copy ${sourceFile} ${destinationDir} /Y"
+                    bat "copy /Y ${sourceFile} ${destinationDir}"
                 }
             }
         }
