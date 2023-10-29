@@ -23,7 +23,7 @@ pipeline {
                     bat "mkdir ${destinationDir}"
                     ///
                     // Copy the file using the 'cp' shell command
-                    bat "copy ${sourceFile} ${destinationDir}"
+                    bat "copy /Y ${sourceFile} ${destinationDir}"
                 }
             }
         }
